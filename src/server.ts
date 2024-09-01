@@ -51,6 +51,13 @@ app.put("/api/planets/:id", (req, res) => {
   res.status(200).json({ msg: "Planet was updated!" });
 });
 
+//eliminare con DELETE
+app.delete("/api/planets/:id", (req, res) => {
+  const { id } = req.params;
+  planets = planets.filter((p) => p.id !== Number(id));
+  res.status(200).json({ msg: "Planet was deleted!" });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
